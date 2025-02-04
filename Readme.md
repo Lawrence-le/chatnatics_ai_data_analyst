@@ -12,7 +12,8 @@ Chatnatics is an AI-powered chatbot designed to assist users in data analysis ta
 
 - **Conversational Data Analysis**
 - **Prompt Validation for Contextual Relevance**
-- **Real-time Data Insights**
+- **Local Language Processing Model**
+- **OpenAI LLM**
 - **User-friendly Interface with TailwindCSS Styling**
 
 ## Tech Stack
