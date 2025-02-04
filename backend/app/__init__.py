@@ -14,7 +14,8 @@ def create_app():
     app.config.from_object(Config)
 
     # Enable CORS for the app
-    CORS(app)
+    # CORS(app)
+    CORS(app, resources={r"/*": {"origins": "*"}})
 
     # # Initialize SocketIO with app
     # socketio.init_app(app)
