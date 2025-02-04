@@ -7,7 +7,6 @@ async function fetchColumnsData() {
   try {
     const response = await axios.get(getColumnApi, {
       headers: { "Content-Type": "application/json" },
-      withCredentials: true, // Enable if backend requires authentication
     });
     return response.data;
   } catch (err) {
