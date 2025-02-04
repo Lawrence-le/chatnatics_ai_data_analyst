@@ -6,6 +6,7 @@ import { apiGetUrl } from "./apiUrl";
 async function fetchColumnsData() {
   try {
     const apiUrl = `${apiGetUrl}/api/get_columns`;
+    console.log(apiUrl);
     const response = await axios.get(apiUrl);
     // const response = await axios.get("http://localhost:5000/api/get_columns");
     return response.data;

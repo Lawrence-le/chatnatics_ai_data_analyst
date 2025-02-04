@@ -14,7 +14,10 @@ def create_app():
     app.config.from_object(Config)
 
     # Enable CORS for the app
-    CORS(app)
+    # CORS(app)
+    CORS(
+        app, origins=["http://localhost:5173"]
+    )  # Adjust this for your frontend's domain
 
     # Initialize SocketIO with app
     socketio.init_app(app)
