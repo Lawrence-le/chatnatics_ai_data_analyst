@@ -4,10 +4,16 @@ import axios from "axios";
 
 async function fetchUserInput(userInput, assistMode) {
   try {
-    const response = await axios.post(
-      "http://localhost:5000/api/user_prompt/prompt",
-      { user_input: userInput, openai_status: assistMode }
-    );
+    const apiUrl = process.env.REACT_APP_USER_PROMPT;
+    const response = await axios.post(apiUrl, {
+      user_input: userInput,
+      openai_status: assistMode,
+    });
+
+    // const response = await axios.post(
+    //   "http://localhost:5000/api/user_prompt/prompt",
+    //   { user_input: userInput, openai_status: assistMode }
+    // );
     return response.data;
   } catch (err) {
     console.error("Error fetching data:", err.message);
