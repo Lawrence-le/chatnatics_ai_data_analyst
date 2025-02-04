@@ -15,7 +15,17 @@ def create_app():
 
     # Enable CORS for the app
     # CORS(app)
-    CORS(app, resources={r"/*": {"origins": "*"}})
+    CORS(
+        app,
+        resources={
+            r"/*": {
+                "origins": [
+                    "http://localhost:5173",
+                    "https://chatnatics-ai-data-analyst-11znfwfkh.vercel.app",
+                ]
+            }
+        },
+    )
 
     # # Initialize SocketIO with app
     # socketio.init_app(app)
