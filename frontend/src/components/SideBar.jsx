@@ -38,7 +38,7 @@ const Sidebar = () => {
   return (
     <div className="bg-secondary dark:bg-darksecondary p-4">
       <div className="text-xl font-bold">Chatnatics</div>
-      <div className="text-m mb-3">Your Virtual Data Analyst</div>
+      <div className="text-m mb-3">Your AI Data Analyst</div>
       <hr className="mb-5 border-black dark:border-white" />
       <div className="">
         <DarkModeToggle />
