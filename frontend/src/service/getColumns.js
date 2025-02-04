@@ -1,10 +1,11 @@
 // frontend/src/service/get_columns.js
 
 import axios from "axios";
+import { apiGetUrl } from "./apiUrl";
 
 async function fetchColumnsData() {
   try {
-    const apiUrl = process.env.REACT_APP_GET_COLUMNS;
+    const apiUrl = `${apiGetUrl}/api/get_columns`;
     const response = await axios.get(apiUrl);
     // const response = await axios.get("http://localhost:5000/api/get_columns");
     return response.data;
