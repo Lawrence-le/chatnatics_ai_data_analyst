@@ -4,8 +4,8 @@ from flask_socketio import SocketIO
 from flask_cors import CORS
 from config.config import Config
 
-# Initialize SocketIO and Flask App
-socketio = SocketIO(cors_allowed_origins="*")
+# # Initialize SocketIO and Flask App
+# socketio = SocketIO(cors_allowed_origins="*")
 
 
 def create_app():
@@ -16,8 +16,8 @@ def create_app():
     # Enable CORS for the app
     CORS(app)
 
-    # Initialize SocketIO with app
-    socketio.init_app(app)
+    # # Initialize SocketIO with app
+    # socketio.init_app(app)
 
     # Import and register Blueprints
     # from app.routes.queries import chatgpt_queries
