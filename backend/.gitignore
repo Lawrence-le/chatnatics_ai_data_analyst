@@ -30,3 +30,4 @@ Thumbs.db
 
 # Exclude learn.py file
 learn.py
+.vercel
