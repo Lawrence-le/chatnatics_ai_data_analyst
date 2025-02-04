@@ -5,10 +5,10 @@ import { getColumnApi } from "./apiUrl";
 
 async function fetchColumnsData() {
   try {
-    // const apiUrl = `${apiGetUrl}/api/get_columns`;
-    // console.log(apiUrl);
-    const response = await axios.get(getColumnApi);
-    // const response = await axios.get("http://localhost:5000/api/get_columns");
+    const response = await axios.get(getColumnApi, {
+      headers: { "Content-Type": "application/json" },
+      withCredentials: true, // Enable if backend requires authentication
+    });
     return response.data;
   } catch (err) {
     console.error("Error fetching data:", err.message);

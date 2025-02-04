@@ -16,6 +16,7 @@ def create_app():
 
     # Enable CORS for the app
     # CORS(app)
+
     CORS(
         app,
         resources={
@@ -23,7 +24,8 @@ def create_app():
                 "origins": [
                     "http://localhost:5173",
                     "https://chatnatics-ai-data-analyst.vercel.app/",
-                ]
+                ],
+                "allow_headers": ["Content-Type", "Authorization"],
             }
         },
     )
