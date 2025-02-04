@@ -1,0 +1,40 @@
+# Python specific
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+*.db
+*.sqlite3
+env/
+venv/
+*.egg-info
+*.egg
+dist/
+build/
+*.bak
+
+# Docker specific
+.dockerignore
+Dockerfile
+
+# IDE/Editor specific
+.vscode/
+.idea/
+*.iml
+*.swp
+*.swo
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Log files
+*.log
+
+# Jupyter notebooks or other temporary files
+.ipynb_checkpoints/
+*.ipynb
+
+# Testing directories or files
+tests/
+test/

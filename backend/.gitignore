@@ -1,0 +1,32 @@
+# Python
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+env/
+venv/
+*.egg-info/
+*.eggs/
+
+# Flask
+instance/
+*.log
+*.pot
+*.pyc
+
+# IDEs
+.vscode/
+.idea/
+
+# Docker
+*.docker/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Environment variable files
+.env
+
+# Exclude learn.py file
+learn.py
