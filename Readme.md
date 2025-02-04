@@ -38,6 +38,11 @@ Chatnatics is an AI-powered chatbot designed to assist users in data analysis ta
 - **Docker**
 - **Pytest**
 
+### Programming Language
+
+- **Python**
+- **JavaScript**
+
 ## System Architecture
 
 ![Chatnatics Architecture](<public/System%20Architecture%20(OpenAI-ML_DA).jpg>)
