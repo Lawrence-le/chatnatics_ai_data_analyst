@@ -150,9 +150,7 @@ const MainContent = () => {
           <div className="flex flex-col px-2 rounded-md">
             <div className="font-bold">
               <Typewriter
-                texts={[
-                  `Hello, I am your Virtual Data Analyst! How can I assist you with this dataset today?`,
-                ]}
+                texts={[`Hello, how can I assist you with this dataset today?`]}
                 onComplete={() => setShowSecondTypewriter(true)}
               />
             </div>
