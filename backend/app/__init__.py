@@ -1,6 +1,7 @@
 # app\__init__.py
 from flask import Flask, Response
-from flask_socketio import SocketIO
+
+# from flask_socketio import SocketIO
 from flask_cors import CORS
 from config.config import Config
 
