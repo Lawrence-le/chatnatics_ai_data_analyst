@@ -1,12 +1,12 @@
 // frontend/src/service/userInput.js
 
 import axios from "axios";
-import { apiGetUrl } from "./apiUrl";
+import { getUserPromptApi } from "./apiUrl";
 
 async function fetchUserInput(userInput, assistMode) {
   try {
-    const apiUrl = `${apiGetUrl}/api/user_prompt/prompt`;
-    const response = await axios.post(apiUrl, {
+    // const apiUrl = `${apiGetUrl}/api/user_prompt/prompt`;
+    const response = await axios.post(getUserPromptApi, {
       user_input: userInput,
       openai_status: assistMode,
     });
