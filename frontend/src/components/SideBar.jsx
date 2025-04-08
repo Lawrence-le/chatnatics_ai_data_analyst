@@ -5,6 +5,7 @@ import fetchColumnsData from "../service/getColumns";
 import { DarkModeToggle } from "./DarkMode";
 import { useDispatch, useSelector } from "react-redux";
 import { setError } from "../redux/slice";
+import DataFetchingModal from "./DataFetchingModal";
 
 const Sidebar = () => {
   const dispatch = useDispatch();
@@ -31,12 +32,16 @@ const Sidebar = () => {
         dispatch(setError(err.message));
       }
     };
-
     getData();
-  });
+  }, []);
+
+  useEffect(() => {
+    console.log("Updated Columns Data:", columnsData);
+  }, [columnsData]);
 
   return (
     <div className="bg-secondary dark:bg-darksecondary p-4">
+      <DataFetchingModal columnsData={columnsData} />
       <div className="text-xl font-bold">Chatnatics</div>
       <div className="text-m mb-3">Your AI Data Analyst</div>
       <hr className="mb-5 border-black dark:border-white" />
