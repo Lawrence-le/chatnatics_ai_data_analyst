@@ -6,7 +6,7 @@ export default defineConfig({
   plugins: [react()],
   server: {
     proxy: {
-      "/api": "https://chatnatics-ai-data-analyst-backend.onrender.com", // Replace with your actual backend URL
+      "/api": "https://chatnatics-ai-data-analyst-backend.onrender.com",
     },
   },
 });

@@ -1,4 +1,4 @@
-// frontend/src/service/getServerStatus.js
+// frontend/src/service/userInput.js
 
 import axios from "axios";
 import { getServerStatusApi } from "./apiUrl";
@@ -10,10 +10,9 @@ async function getServerStatus() {
     });
     return response.data;
   } catch {
-    const errorMessage =
-      "Service temporarily unavailable. Please try again later.";
-    console.error(errorMessage);
-    throw new Error(errorMessage);
+    const errorMsg = "Server Down - Please wait or try again later:";
+    console.error(errorMsg);
+    throw new Error(errorMsg);
   }
 }
 

@@ -34,7 +34,7 @@ const Sidebar = () => {
         setColumnsData(data.unique_values);
         setLoadingCompleted(true);
       } catch (err) {
-        console.error("Error fetching columns data");
+        console.error("Error fetching data");
 
         setLoadingCompleted(false);
       }
@@ -49,7 +49,7 @@ const Sidebar = () => {
         if (getServerStatus !== null) {
           setServerReady(true);
         }
-      } catch (err) {
+      } catch {
         setServerReady(false);
         console.error("Error fetching server status:");
         setLoadingCompleted(false);
