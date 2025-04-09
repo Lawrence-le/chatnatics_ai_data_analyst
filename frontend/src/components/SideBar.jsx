@@ -2,15 +2,19 @@
 
 import { useState, useEffect } from "react";
 import fetchColumnsData from "../service/getColumns";
+import getServerStatus from "../service/getServerStatus";
 import { DarkModeToggle } from "./DarkMode";
 import { useDispatch, useSelector } from "react-redux";
 import { setError } from "../redux/slice";
 import DataFetchingModal from "./DataFetchingModal";
+import { User } from "react-feather";
 
 const Sidebar = () => {
   const dispatch = useDispatch();
   const [columnsData, setColumnsData] = useState(null);
   const [hoveredColumn, setHoveredColumn] = useState(null);
+  const [loadingCompleted, setLoadingCompleted] = useState(false);
+  const [serverReady, setServerReady] = useState(false);
   const error = useSelector((state) => state.appData.error);
 
   const capitalizeFirstLetter = (string) => {
@@ -28,20 +32,38 @@ const Sidebar = () => {
       try {
         const data = await fetchColumnsData();
         setColumnsData(data.unique_values);
+        setLoadingCompleted(true);
       } catch (err) {
         dispatch(setError(err.message));
+        setLoadingCompleted(false);
       }
     };
     getData();
-  }, []);
+  }, [dispatch]);
+
+  useEffect(() => {
+    const checkStatus = async () => {
+      try {
+        const statusResponse = await getServerStatus();
+        if (getServerStatus !== null) {
+          setServerReady(true);
+        }
+      } catch (err) {
+        setServerReady(false);
+      }
+    };
+    checkStatus();
+  }, [setServerReady]);
 
   useEffect(() => {
     console.log("Updated Columns Data:", columnsData);
+    console.log("Loading Status:", loadingCompleted);
+    console.log("Server Ready:", serverReady);
   }, [columnsData]);
 
   return (
     <div className="bg-secondary dark:bg-darksecondary p-4">
-      <DataFetchingModal columnsData={columnsData} />
+      <DataFetchingModal loading={serverReady} />
       <div className="text-xl font-bold">Chatnatics</div>
       <div className="text-m mb-3">Your AI Data Analyst</div>
       <hr className="mb-5 border-black dark:border-white" />

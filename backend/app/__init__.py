@@ -34,13 +34,16 @@ def create_app():
     from app.routes.get_columns import get_columns
     from app.routes.openai_response import openai
     from app.routes.test_openai import test_openai
+    from app.routes.get_server_status import get_server_status
 
     app.register_blueprint(test_openai, url_prefix="/api/test_openai")
     app.register_blueprint(openai, url_prefix="/api/openai_response")
     app.register_blueprint(read_reply, url_prefix="/api/read_reply")
     app.register_blueprint(user, url_prefix="/api/user_prompt")
     app.register_blueprint(data_gov_api, url_prefix="/api/data")
-    app.register_blueprint(get_all_data, url_prefix="/api/get_all_data")
     app.register_blueprint(get_columns, url_prefix="/api/get_columns")
+
+    app.register_blueprint(get_all_data, url_prefix="/api/get_all_data")
+    app.register_blueprint(get_server_status, url_prefix="/api/server_status")
 
     return app
