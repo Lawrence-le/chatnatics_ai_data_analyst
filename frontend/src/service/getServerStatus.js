@@ -9,7 +9,7 @@ async function getServerStatus() {
       headers: { "Content-Type": "application/json" },
     });
     return response.data;
-  } catch (err) {
+  } catch {
     if (import.meta.env.MODE === "development") {
       console.log("Dev-only log:", err);
     }
