@@ -9,7 +9,7 @@ async function getServerStatus() {
       headers: { "Content-Type": "application/json" },
     });
     return response.data;
-  } catch (err) {
+  } catch () {
     const errorMessage =
       "Service temporarily unavailable. Please try again later.";
     console.error(errorMessage);
