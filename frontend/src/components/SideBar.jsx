@@ -5,15 +5,14 @@ import { DarkModeToggle } from "./DarkMode";
 import { useDispatch, useSelector } from "react-redux";
 // import { setError } from "../redux/slice";
 import DataFetchingModal from "./DataFetchingModal";
-import { Menu, X, User } from "react-feather"; // <-- Add Menu & X
-
+import { Menu, X } from "react-feather";
 const Sidebar = () => {
   const dispatch = useDispatch();
   const [columnsData, setColumnsData] = useState(null);
   const [hoveredColumn, setHoveredColumn] = useState(null);
   const [loadingCompleted, setLoadingCompleted] = useState(false);
   const [serverReady, setServerReady] = useState(true);
-  const [isOpen, setIsOpen] = useState(false); // <-- For mobile toggle
+  const [isOpen, setIsOpen] = useState(false);
   const error = useSelector((state) => state.appData.error);
 
   const capitalizeFirstLetter = (string) => {
@@ -32,13 +31,13 @@ const Sidebar = () => {
         const data = await fetchColumnsData();
         setColumnsData(data.unique_values);
         setLoadingCompleted(true);
-      } catch (err) {
+      } catch {
         console.error("Error fetching data");
         setLoadingCompleted(false);
       }
     };
     getData();
-  }, [dispatch]);
+  }, []);
 
   useEffect(() => {
     const checkStatus = async () => {
@@ -57,7 +56,7 @@ const Sidebar = () => {
       }
     };
     checkStatus();
-  }, [setServerReady]);
+  }, []);
 
   useEffect(() => {
     console.log("Updated Columns Data:", columnsData);
