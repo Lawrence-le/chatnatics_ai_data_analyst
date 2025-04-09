@@ -34,7 +34,8 @@ const Sidebar = () => {
         setColumnsData(data.unique_values);
         setLoadingCompleted(true);
       } catch (err) {
-        dispatch(setError(err.message));
+        console.error("Error fetching columns data");
+
         setLoadingCompleted(false);
       }
     };
@@ -50,6 +51,8 @@ const Sidebar = () => {
         }
       } catch (err) {
         setServerReady(false);
+        console.error("Error fetching server status:");
+        setLoadingCompleted(false);
       }
     };
     checkStatus();

@@ -10,8 +10,8 @@ async function fetchColumnsData() {
     });
     return response.data;
   } catch (err) {
-    console.error("Error fetching data:", err.message);
-    throw new Error("Failed to fetch columns data.");
+    console.error("Error fetching column data. Please wait or try later");
+    throw new Error("Error fetching column data. Please wait or try later");
   }
 }
 

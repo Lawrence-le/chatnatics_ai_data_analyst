@@ -1,4 +1,4 @@
-// frontend/src/service/userInput.js
+// frontend/src/service/getServerStatus.js
 
 import axios from "axios";
 import { getServerStatusApi } from "./apiUrl";
@@ -10,8 +10,10 @@ async function getServerStatus() {
     });
     return response.data;
   } catch (err) {
-    console.error("Error fetching data:", err.message);
-    throw new Error("Failed to fetch columns data.");
+    if (import.meta.env.MODE === "development") {
+      console.log("Dev-only log:", err);
+    }
+    return null;
   }
 }
 
