@@ -9,11 +9,11 @@ async function getServerStatus() {
       headers: { "Content-Type": "application/json" },
     });
     return response.data;
-  } catch {
-    if (import.meta.env.MODE === "development") {
-      console.log("Dev-only log:", err);
-    }
-    return null;
+  } catch (err) {
+    const errorMessage =
+      "Service temporarily unavailable. Please try again later.";
+    console.error(errorMessage);
+    throw new Error(errorMessage);
   }
 }
 
