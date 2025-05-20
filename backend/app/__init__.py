@@ -19,7 +19,7 @@ def create_app():
                 "origins": [
                     "http://localhost:5173",
                     "https://chatnatics-ai-data-analyst.vercel.app",
-                    "https://chatnaticsaidataanalyst-production.up.railway.app/",
+                    "https://chatnaticsaidataanalyst-production.up.railway.app",
                 ],
                 "allow_headers": ["Content-Type", "Authorization"],
             }
