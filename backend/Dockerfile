@@ -11,4 +11,5 @@ COPY . .
 EXPOSE 5000
 # CMD ["python", "app.py"]
 
-CMD ["gunicorn", "-b", "0.0.0.0:5000", "main:app"]
+# CMD ["gunicorn", "-b", "0.0.0.0:5000", "main:app"]
+CMD ["sh", "-c", "gunicorn -b 0.0.0.0:\${PORT} main:app"]
