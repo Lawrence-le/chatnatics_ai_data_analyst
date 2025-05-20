@@ -1,8 +1,0 @@
-[phases.setup]
-nixPkgs = ["python310", "gunicorn"]
-
-[phases.install]
-cmds = ["pip install --no-cache-dir -r requirements.txt"]
-
-[start]
-cmd = "gunicorn -b 0.0.0.0:${PORT} main:app"
