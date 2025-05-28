@@ -32,8 +32,8 @@ categories = {
                 }
             }
         ],
-        "school": [],
-        "degree": [],
+        "school": [],  # stored by add_unique_values_column, called in user.py
+        "degree": [],  # stored by add_unique_values_column, called in user.py
     },
     "operation": [
         {
@@ -80,6 +80,8 @@ def add_unique_values_column(data):
     unique_degree = df["degree"].dropna().unique()
     unique_degree_list = unique_degree.tolist()
     categories["entity"]["degree"] = unique_degree_list
+
+    return unique_schools_list, unique_degree_list
 
 
 synonym_universities = {

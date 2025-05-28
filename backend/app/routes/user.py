@@ -1,12 +1,11 @@
 # app\routes\user.py
 
-from flask import Blueprint, jsonify, request
+from flask import Blueprint, jsonify, request, current_app
 import requests
 from app.modules.keyword_extractor import KeywordExtractor
 from app.modules.handle_user_input import validate_user_input, handle_user_input
 from config.prompt_structure import (
     categories,
-    column_mapping,
     synonym_measures,
     add_unique_values_column,
 )
@@ -31,10 +30,19 @@ def user_prompt():
 
         openai_status = data.get("openai_status", "")
 
-        # * Extract data from public api
+        data_response = current_app.config.get("DATA_RESPONSE")
+
+        """
+        ! Moved to create_app() to prevent fetching data and storing unique values everytime a post request is made.
+        # Extract data from public api 
+        
         data_response = fetch_data().get_json()  # convert to to json
 
-        unique_school = add_unique_values_column(data_response)
+        # Extract unique values for 'school' and 'degree' from the loaded dataset
+        # and update the 'categories' dictionary in prompt_structure accordingly.
+        # This ensures the keyword extractor has up-to-date lists to match user inputs against.
+        add_unique_values_column(data_response)
+        """
 
         # * Extract keywords from KeywordExtractor Class
         extracted_keywords = keyword_extractor.extract_keywords(user_input)

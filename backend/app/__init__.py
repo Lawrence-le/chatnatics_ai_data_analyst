@@ -2,6 +2,10 @@
 from flask import Flask, Response
 from flask_cors import CORS
 from config.config import Config
+from app.routes.data_gov_api import fetch_data_raw
+from config.prompt_structure import (
+    add_unique_values_column,
+)
 
 
 def create_app():
@@ -25,6 +29,22 @@ def create_app():
             }
         },
     )
+
+    # Fetch raw data (Pandas DataFrame)
+    df_data = fetch_data_raw()
+
+    # Convert DataFrame to dict for storage in config
+    data_response = df_data.to_dict(orient="records")
+
+    # Store it data_response in app config / global variable
+    app.config["DATA_RESPONSE"] = data_response
+
+    """
+    Extract unique values for 'school' and 'degree' from the loaded dataset
+    and update the 'categories' dictionary in prompt_structure accordingly.
+    This ensures the keyword extractor has up-to-date lists to match user inputs against.
+    """
+    add_unique_values_column(data_response)
 
     # Import and register Blueprints
     from app.routes.user import user
