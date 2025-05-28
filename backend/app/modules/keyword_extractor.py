@@ -1,8 +1,6 @@
 # app\modules\KeywordExtractor.py
 import re
 
-# from config.prompt_structure import extracted_keywords, categories
-
 
 class KeywordExtractor:
 
@@ -90,15 +88,6 @@ class KeywordExtractor:
         if matched_keywords:
             self.extracted_keywords["measure"] = matched_keywords
 
-    # def extract_operations(self, user_input):
-    #     """
-    #     Extract operation-related keywords from the user input (e.g., calculate, analyze).
-    #     """
-    #     for value in self.categories["operation"]:
-    #         self.re_search_compiler(user_input, "operation", value)
-    #         if self.extracted_keywords.get("operation"):
-    #             break
-
     def extract_operations(self, user_input):
         """
         Extract operation-related keywords from the user input (e.g., calculate, analyze).
@@ -126,9 +115,3 @@ class KeywordExtractor:
         if year_match:
             self.extracted_keywords["year"] = year_match.group(0)
             return  # Exit after finding the year
-
-        # # If no year is found, check for predefined time keywords (like '2025', 'January', etc.)
-        # for value in self.categories["time"]:
-        #     self.re_search_compiler(user_input, "time", value)
-        #     if self.extracted_keywords.get("time"):
-        #         break

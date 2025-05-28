@@ -6,9 +6,6 @@ import io
 import matplotlib.pyplot as plt
 from app.routes.data_gov_api import fetch_data
 from sklearn.linear_model import LinearRegression
-
-# from sklearn.model_selection import train_test_split
-# from sklearn.metrics import mean_squared_error
 import pandas as pd
 import numpy as np
 
@@ -167,14 +164,6 @@ class FilterEntity:
                     df["school"].str.contains(self.school, case=False, na=False)
                 )
                 filter_messages.append(f"school filter ({self.school})")
-
-            # Filter by year
-            # if self.year:
-            #     print("Applying year filter:", self.year)
-            #     conditions.append(
-            #         df["year"].str.contains(self.year, case=False, na=False)
-            #     )
-            #     filter_messages.append(f"year filter ({self.year})")
 
             # Handle year filtering but allow for future year if it's a prediction
             if self.year and not self.predict:

@@ -65,13 +65,5 @@ def handle_user_input(extracted_keywords, data):
         print("This is a Predict")
         return operation_response
 
-    # # elif "compare" in user_operation:
-    # #     operation = Compare(extracted_keywords)
-    # #     print("This is a Compare")
-
-    # # elif "analyze" in user_operation:
-    # #     operation = Analyze(extracted_keywords)
-    # #     print("This is a Analyze")
-
     else:
         return f"Error: Unrecognized operation '{user_operation}'"
