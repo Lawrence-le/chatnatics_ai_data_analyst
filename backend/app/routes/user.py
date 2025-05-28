@@ -6,7 +6,9 @@ from app.modules.keyword_extractor import KeywordExtractor
 from app.modules.handle_user_input import validate_user_input, handle_user_input
 from config.prompt_structure import (
     categories,
+    column_mapping,
     synonym_measures,
+    add_unique_values_column,
 )
 from app.routes.data_gov_api import fetch_data
 from app.modules.data_fetcher import DataFetcher
@@ -14,6 +16,7 @@ from app.modules.data_fetcher import DataFetcher
 
 user = Blueprint("user", __name__)
 
+# pass in stored categories and synonym_measures from prompt_structure.py
 keyword_extractor = KeywordExtractor(categories, synonym_measures)
 
 
@@ -30,6 +33,8 @@ def user_prompt():
 
         # * Extract data from public api
         data_response = fetch_data().get_json()  # convert to to json
+
+        unique_school = add_unique_values_column(data_response)
 
         # * Extract keywords from KeywordExtractor Class
         extracted_keywords = keyword_extractor.extract_keywords(user_input)
@@ -109,6 +114,7 @@ def user_prompt():
             response = {
                 "user_prompt": user_input,
                 "process_response": validation_response,
+                "extracted_keywords": extracted_keywords,
             }
 
         return jsonify(response)

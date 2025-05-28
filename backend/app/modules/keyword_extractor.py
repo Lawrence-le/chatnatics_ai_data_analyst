@@ -40,8 +40,11 @@ class KeywordExtractor:
         Extract entity-related keywords from the user input (e.g., school, course, university).
         """
         for university_dict in self.categories["entity"]["university"]:
+
+            # full_name is the key and synonyms is the value.
             for full_name, synonyms in university_dict["synonym_universities"].items():
-                # Check if the full name appears in the user input
+
+                # Search for the university full_name if found in the user input, add it to the extracted_keywords dictionary.
                 self.re_search_compiler(user_input, "university", full_name)
 
                 # Check if any synonym appears in the user input

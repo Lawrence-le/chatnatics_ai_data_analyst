@@ -64,6 +64,24 @@ categories = {
     "time": ["2025", "year", "quarter", "month", "time"],
 }
 
+
+def add_unique_values_column(data):
+    # * Extract data from public api
+    df = data
+    df = pd.DataFrame(df)
+    df = df.dropna()
+
+    # * Extract unique school from dataset
+    unique_schools = df["school"].dropna().unique()
+    unique_schools_list = unique_schools.tolist()
+    categories["entity"]["school"] = unique_schools_list
+
+    # * Extract unique degree from dataset
+    unique_degree = df["degree"].dropna().unique()
+    unique_degree_list = unique_degree.tolist()
+    categories["entity"]["degree"] = unique_degree_list
+
+
 synonym_universities = {
     "NTU": "Nanyang Technological University",
     "NUS": "National University of Singapore",
