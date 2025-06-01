@@ -3,8 +3,6 @@
 from app.modules.operation import (
     Calculate,
     Predict,
-    Compare,
-    Analyze,
     CheckYear,
     CheckEntity,
     CheckMeasures,

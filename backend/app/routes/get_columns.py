@@ -1,7 +1,5 @@
 # app\routes\get_columns.py
 from flask import Blueprint, jsonify
-import requests
-import pandas as pd
 from app.routes.data_gov_api import fetch_data_raw
 
 

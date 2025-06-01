@@ -7,10 +7,11 @@ from app.modules.handle_user_input import validate_user_input, handle_user_input
 from config.prompt_structure import (
     categories,
     synonym_measures,
-    add_unique_values_column,
+    # add_unique_values_column,
 )
-from app.routes.data_gov_api import fetch_data
-from app.modules.data_fetcher import DataFetcher
+
+# from app.routes.data_gov_api import fetch_data
+# from app.modules.data_fetcher import DataFetcher
 
 
 user = Blueprint("user", __name__)

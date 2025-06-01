@@ -1,13 +1,14 @@
 # app\modules\operation.py
-# from app.modules.data_fetcher import DataFetcher
-from flask import Flask, send_file
 import base64
 import io
 import matplotlib.pyplot as plt
-from app.routes.data_gov_api import fetch_data
 from sklearn.linear_model import LinearRegression
 import pandas as pd
 import numpy as np
+
+# from app.routes.data_gov_api import fetch_data
+# from app.modules.data_fetcher import DataFetcher
+# from flask import Flask, send_file
 
 
 class CheckOperation:
@@ -526,17 +527,23 @@ class Compare:
 
     def __init__(self, extracted_keywords):
         self.user_input = extracted_keywords
+        pass
 
     def process(self):
         print("Processing Compare")
         pass
+
+    pass
 
 
 class Analyze:
 
     def __init__(self, extracted_keywords):
         self.user_input = extracted_keywords
+        pass
 
     def process(self):
         print("Processing Analyze")
         pass
+
+    pass

@@ -1,6 +1,4 @@
 from flask import Blueprint, session, jsonify
-import requests
-import pandas as pd
 
 get_server_status = Blueprint("get_server_status", __name__)
 

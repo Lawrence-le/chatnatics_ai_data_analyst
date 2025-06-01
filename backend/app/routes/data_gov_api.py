@@ -1,5 +1,5 @@
 # app\routes\data_gov_api.py
-from flask import Blueprint, session, jsonify
+from flask import Blueprint, jsonify
 import requests
 import pandas as pd
 
